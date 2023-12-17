@@ -1,16 +1,25 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 html {
   font-family: sans-serif;
 }
 
 body {
+  @apply overflow-x-hidden m-0;
   scrollbar-width: thin;
-  margin: 0;
-  overflow-x: hidden;
+  background-color: rgb(47,116,192)
 }
 
 ::-webkit-scrollbar {
-  height: 12px;
-  width: 5px;
+  @apply h-3 w-[5px];
   background: #000;
 }
 

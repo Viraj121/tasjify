@@ -1,8 +1,21 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
 .input {
-  display: flex;
-  width: 90%;
-  position: relative;
-  align-items: center;
+  @apply flex w-[90%] relative items-center;
 }
 
 .input__box {
@@ -16,56 +29,38 @@
 }
 
 .input__box:focus {
-  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
   outline: none;
 }
 
 .input__submit {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin: 12px;
-  border-radius: 50px;
-  right: 0px;
-  border: none;
-  font-size: 15px;
-  background-color: #2f74c0;
-  color: white;
-  transition: 0.2s all;
-  box-shadow: 0 0 10px black;
+  @apply absolute w-[50px] h-[50px] text-[15px] bg-[#2f74c0] text-[white] transition-[0.2s] duration-[all] shadow-[0_0_10px_black] m-3 rounded-[50px] border-[none] right-0;
 }
 
 .input_submit:hover {
-  background-color: #388ae2;
+  @apply bg-[#388ae2];
 }
 
 .input_submit:active {
-  transform: scale(0.8);
-  box-shadow: 0 0 5px black;
+  @apply shadow-[0_0_5px_black] scale-[0.8];
 }
-
 
 .todos {
-  display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  flex-wrap: wrap;
+  @apply flex justify-evenly w-[90%] flex-wrap;
 }
+
 
 .todos__single {
   display: flex;
   width: 29.5%;
   border-radius: 5px;
   padding: 20px;
+  height: 100px;
   margin-top: 15px;
   background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
 }
 
 .todos__single--text {
-  flex: 1;
-  padding: 5px;
-  border: none;
-  font-size: 20px;
+  @apply flex-1 text-xs p-[5px] border-[none];
 }
 
 .todos__single--text:focus {
@@ -73,27 +68,25 @@
 }
 
 .icon {
-  margin-left: 10px;
-  font-size: 25px;
-  cursor: pointer;
+  @apply text-[25px] cursor-pointer flex ml-20;
 }
 
 @media (max-width: 1200px) {
   .todos__single {
-    width: 40%;
+    @apply w-2/5;
   }
 }
 
 @media (max-width: 700px) {
   .input {
-    width: 95%;
+    @apply w-[95%];
   }
 
   .todos {
-    width: 95%;
+    @apply w-[95%];
   }
 
   .todos__single {
-    width: 100%;
+    @apply w-full;
   }
 }
